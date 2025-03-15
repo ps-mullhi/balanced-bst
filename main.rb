@@ -10,7 +10,7 @@ tree.pretty_print
 tree.delete(17)
 tree.insert(17)
 tree.insert(18)
-# tree.insert(19)
+tree.insert(19)
 tree.pretty_print
 
 # arr = tree.level_order {|node| puts "Traversed #{node.value}"}
@@ -21,4 +21,21 @@ p arr
 p tree.height
 p tree.depth(tree.find(1320))
 puts tree.balanced?
+
+tree.rebalance
+tree.pretty_print
+tree3 = Tree.new([1])
+tree3.insert(2)
+tree3.insert(3)
+tree3.insert(4)
+tree3.insert(5)
+tree3.insert(6)
+tree3.insert(7)
+tree3.insert(8)
+tree3.insert(9)
+tree3.insert(20)
+tree3.insert(32)
+tree3.pretty_print
+tree3.rebalance
+tree3.pretty_print
 # tree2.pretty_print

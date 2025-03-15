@@ -156,6 +156,12 @@ class Tree
 
     arr.any?(false) ? false : true
   end
+
+  def rebalance 
+    all_values = self.inorder
+    prepped_values = all_values.uniq.sort
+    @root = build_tree(prepped_values, 0, prepped_values.length - 1)
+  end
   
   # not my method. Odin Project student shared on discord, and linked in project description
   def pretty_print(node = @root, prefix = '', is_left = true)
