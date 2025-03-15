@@ -1,7 +1,6 @@
 class Node
   include Comparable
-  attr_accessor :left, :right
-  attr_reader :value
+  attr_accessor :left, :right, :value
 
   def initialize(value, left = nil, right = nil)
     @value = value
@@ -10,6 +9,19 @@ class Node
   end
 
   def <=>(other)
-    Node.value <=> other.value
+    return nil if other.nil?
+    self.value <=> other.value
+  end
+
+  def leaf?
+    self.left.nil? && self.right.nil?
+  end
+
+  def one_child?
+    (self.left.nil? && !self.right.nil?) || (!self.left.nil? && self.right.nil?)
+  end
+
+  def both_children?
+    !self.left.nil? && !self.right.nil?
   end
 end
