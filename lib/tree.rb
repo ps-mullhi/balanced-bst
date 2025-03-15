@@ -58,7 +58,7 @@ class Tree
     end
   end
 
-  def level_order()
+  def level_order
     return if @root.nil? 
 
     queue = Queue.new
@@ -76,6 +76,55 @@ class Tree
       queue.push(node.right) if node.right.nil? == false
     end
 
+    unless block_given?
+      arr
+    end
+  end
+
+  def preorder(node = @root, arr = [], &block)
+    return if node.nil?
+
+    if block_given?
+      block.call(node)
+    else
+      arr << node.value
+    end
+    
+    preorder(node.left, arr, &block)
+    preorder(node.right, arr, &block)
+    
+    unless block_given?
+      arr
+    end
+  end
+
+  def inorder(node = @root, arr = [], &block)
+    return if node.nil?
+    
+    inorder(node.left, arr, &block)
+    if block_given?
+      block.call(node)
+    else
+      arr << node.value
+    end
+    inorder(node.right, arr, &block)
+    
+    unless block_given?
+      arr
+    end
+  end
+
+  def postorder(node = @root, arr = [], &block)
+    return if node.nil?
+    
+    postorder(node.left, arr, &block)
+    postorder(node.right, arr, &block)
+    if block_given?
+      block.call(node)
+    else
+      arr << node.value
+    end
+    
     unless block_given?
       arr
     end
