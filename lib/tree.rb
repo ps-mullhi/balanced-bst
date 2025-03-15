@@ -129,6 +129,12 @@ class Tree
       arr
     end
   end
+
+  def height(node = @root)
+    return -1 if node.nil?
+
+    return 1 + [height(node.left), height(node.right)].max
+  end
   
   # not my method. Odin Project student shared on discord, and linked in project description
   def pretty_print(node = @root, prefix = '', is_left = true)

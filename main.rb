@@ -15,5 +15,6 @@ tree.pretty_print
 # arr = tree.inorder {|node| puts "Traversed #{node.value}"}
 arr = tree.postorder {|node| puts "Traversed #{node.value}"}
 p arr
+p tree.height
 
 # tree2.pretty_print
