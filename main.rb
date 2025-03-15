@@ -8,6 +8,9 @@ tree.insert(6)
 tree.pretty_print
 # p tree.find_successor(tree.find(17))
 tree.delete(17)
+tree.insert(17)
+tree.insert(18)
+# tree.insert(19)
 tree.pretty_print
 
 # arr = tree.level_order {|node| puts "Traversed #{node.value}"}
@@ -17,5 +20,5 @@ arr = tree.postorder {|node| puts "Traversed #{node.value}"}
 p arr
 p tree.height
 p tree.depth(tree.find(1320))
-
+puts tree.balanced?
 # tree2.pretty_print

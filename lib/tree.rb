@@ -149,6 +149,13 @@ class Tree
       end
     end
   end
+
+  def balanced?
+    arr = []
+    level_order {|node| arr << node_balanced?(node)}
+
+    arr.any?(false) ? false : true
+  end
   
   # not my method. Odin Project student shared on discord, and linked in project description
   def pretty_print(node = @root, prefix = '', is_left = true)
@@ -207,6 +214,10 @@ class Tree
     else
       parent.right = child
     end
+  end
+
+  def node_balanced?(node)
+    (height(node.left) - height(node.right)).abs <= 1
   end
  
 end
