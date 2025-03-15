@@ -64,11 +64,20 @@ class Tree
     queue = Queue.new
     queue.push(@root)
 
+    arr = []
     until queue.empty?
       node = queue.pop
-      yield(node)
+      if block_given?
+        yield(node)
+      else
+        arr << node.value
+      end
       queue.push(node.left) if node.left.nil? == false
       queue.push(node.right) if node.right.nil? == false
+    end
+
+    unless block_given?
+      arr
     end
   end
   
