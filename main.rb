@@ -16,5 +16,6 @@ tree.pretty_print
 arr = tree.postorder {|node| puts "Traversed #{node.value}"}
 p arr
 p tree.height
+p tree.depth(tree.find(1320))
 
 # tree2.pretty_print

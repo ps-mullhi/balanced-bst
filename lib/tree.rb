@@ -135,6 +135,20 @@ class Tree
 
     return 1 + [height(node.left), height(node.right)].max
   end
+
+  def depth(node, current = @root, depth = 0)
+    if node.nil?
+      -1
+    elsif node == current
+      depth
+    else
+      if node < current
+        depth(node, current.left, depth + 1)
+      else
+        depth(node, current.right, depth + 1)
+      end
+    end
+  end
   
   # not my method. Odin Project student shared on discord, and linked in project description
   def pretty_print(node = @root, prefix = '', is_left = true)
