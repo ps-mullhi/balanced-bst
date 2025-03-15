@@ -58,6 +58,19 @@ class Tree
     end
   end
 
+  def level_order()
+    return if @root.nil? 
+
+    queue = Queue.new
+    queue.push(@root)
+
+    until queue.empty?
+      node = queue.pop
+      yield(node)
+      queue.push(node.left) if node.left.nil? == false
+      queue.push(node.right) if node.right.nil? == false
+    end
+  end
   
   # not my method. Odin Project student shared on discord, and linked in project description
   def pretty_print(node = @root, prefix = '', is_left = true)

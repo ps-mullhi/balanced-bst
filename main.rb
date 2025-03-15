@@ -10,5 +10,7 @@ tree.pretty_print
 tree.delete(17)
 tree.pretty_print
 
+tree.level_order {|node| puts "Traversed #{node.value}"}
+
 
 # tree2.pretty_print
